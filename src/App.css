@@ -1,0 +1,582 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+}
+
+.title-bar {
+  background: #333;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 3px solid #555;
+  position: relative;
+}
+
+.title-bar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.hit-counter {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
+.tires-indicator {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: #ffaa00;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.road {
+  background: #2a2a2a;
+  padding: 0;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #fff;
+  overflow: hidden;
+}
+
+.road-line {
+  white-space: pre;
+  height: 1.2em;
+}
+
+.road-line.edge {
+  color: #888;
+  background: #444;
+}
+
+.road-line.divider {
+  color: #ffff00;
+  background: #333;
+}
+
+.car-on-divider {
+  color: #0f0;
+}
+
+.road-line.lane {
+  color: #0f0;
+}
+
+.car-sprite {
+  color: #0f0;
+}
+
+.traffic-car {
+  /* Color set inline */
+}
+
+.person-alive {
+  color: #fff;
+}
+
+.person-flattened {
+  color: #ff0000;
+}
+
+.cat-alive {
+  color: #ffaa00;
+}
+
+.cat-flattened {
+  color: #ff6600;
+}
+
+.pothole {
+  color: #000;
+  background: #111;
+}
+
+.lane-container {
+  background: #2a2a2a;
+}
+
+.controls-hint {
+  color: #888;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  margin-top: 1rem;
+}
+
+.key {
+  display: inline-block;
+  background: #444;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #666;
+  margin: 0 0.25rem;
+}
+
+/* Start Screen */
+.start-screen {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.road-pattern {
+  width: 60px;
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #555;
+}
+
+.road-pattern.left {
+  border-right: 3px solid #888;
+}
+
+.road-pattern.right {
+  border-left: 3px solid #888;
+}
+
+.road-pattern-line {
+  color: #ffff00;
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.game-title {
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+  color: #ff6b6b;
+  text-shadow: 3px 3px 0 #000;
+  margin: 0;
+  text-align: center;
+}
+
+.setup-panels {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.car-selection-panel {
+  flex: 2;
+  background: #2a2a2a;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.car-selection-panel h2,
+.settings-panel h2 {
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+.car-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.arrow-btn {
+  background: #444;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: background 0.2s;
+}
+
+.arrow-btn:hover {
+  background: #555;
+}
+
+.car-preview {
+  text-align: center;
+  min-width: 200px;
+}
+
+.car-preview .car-name {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.car-preview .car-art {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.color-selection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.color-selection span {
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+.color-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.color-btn {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #666;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-btn.selected {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.settings-panel {
+  flex: 1;
+  background: #2a2a2a;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.settings-content {
+  font-family: 'Courier New', monospace;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.settings-content p {
+  margin: 0.5rem 0;
+}
+
+.car-name-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #2a2a2a;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+}
+
+.car-name-input label {
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.car-name-input input {
+  background: #1a1a1a;
+  border: 2px solid #555;
+  border-radius: 4px;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 150px;
+}
+
+.car-name-input input:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.random-btn {
+  background: #444;
+  border: 2px solid #555;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  transition: background 0.2s;
+}
+
+.random-btn:hover {
+  background: #555;
+}
+
+.start-btn {
+  background: #4a4;
+  color: #fff;
+  border: 3px solid #6c6;
+  border-radius: 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.start-btn:hover {
+  background: #5b5;
+  transform: scale(1.05);
+}
+
+.start-btn:active {
+  transform: scale(0.98);
+}
+
+/* Game Over Overlay */
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.game-over-box {
+  background: #2a2a2a;
+  border: 4px solid #ff0000;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.game-over-box h2 {
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+  color: #ff0000;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.game-over-box p {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 1.5rem 0;
+}
+
+.restart-btn {
+  background: #444;
+  color: #fff;
+  border: 3px solid #666;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.restart-btn:hover {
+  background: #555;
+  border-color: #888;
+}
+
+/* Radio Controls */
+.radio-toggle {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+}
+
+.radio-btn {
+  background: #333;
+  color: #888;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.radio-btn:hover {
+  background: #444;
+  border-color: #666;
+}
+
+.radio-btn.on {
+  background: #2a4a2a;
+  color: #4f4;
+  border-color: #4a4;
+}
+
+.channel-display {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.channel-number {
+  color: #0f0;
+  font-size: 0.9rem;
+}
+
+.song-name {
+  color: #fff;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channel-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.channel-btn {
+  background: #333;
+  color: #888;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  padding: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.channel-btn:hover {
+  background: #444;
+  color: #fff;
+}
+
+.channel-btn.active {
+  background: #2a4a2a;
+  color: #4f4;
+  border-color: #4a4;
+}
+
+/* Radio bar above title */
+.radio-bar {
+  background: #111;
+  padding: 0.4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #333;
+}
+
+.radio-btn-small {
+  background: #333;
+  border: 2px solid #444;
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radio-btn-small:hover {
+  background: #444;
+}
+
+.radio-btn-small.on {
+  background: #2a4a2a;
+  border-color: #4a4;
+}
+
+.radio-info {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #0f0;
+  min-width: 200px;
+}
+
+.radio-volume {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #ff0;
+  min-width: 80px;
+}
+
+.radio-hint {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #555;
+}
